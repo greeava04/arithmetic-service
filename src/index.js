@@ -10,5 +10,8 @@ app.get('/', (req, res) => {
 app.get('/add/:n/:m', (req, res) => {
     res.json(Number(req.params.n) + Number(req.params.m));
 });
+app.get('/sub/:n/:m', (req, res) => {
+    res.json(Number(req.params.n) - Number(req.params.m));
+});
 
 app.listen(port);
