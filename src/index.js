@@ -1,17 +1,17 @@
+require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
+const { add } = require("./arithmetica");
 const app = express();
-const port = 3000;
-
 app.use(cors());
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+
+const port=process.env.PORT;
+app.get('/',(req,res)=>{
+    res.send('Arithmetic service');
+})
+
 app.get('/add/:n/:m', (req, res) => {
-    res.json(Number(req.params.n) + Number(req.params.m));
-});
-app.get('/sub/:n/:m', (req, res) => {
-    res.json(Number(req.params.n) - Number(req.params.m));
+    res.json(add(Number(req.params.n),Number(req.params.m)));
 });
 
 app.listen(port);

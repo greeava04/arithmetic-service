@@ -1,4 +1,4 @@
 function add(n,m){
     return n+m;
 }
-module.exports = add;
+module.exports ={ add };
